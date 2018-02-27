@@ -11,6 +11,8 @@ It will also help me get in the habit of saving my code and using Git more frequ
 - [ ] Clean up my version of the file from the first PHP Workshop.
 - [x] Create the GitHub Repo for the PHP Track.
 - [x] Test README.md appearance on GitHub (actions and relative links).
+- [ ] Create instructions for getting PHP 7.2 and Laravel set up on c9.io.
+    * Gabriel has a good chunk of this available on slack already.
 
 #### CodeSchool Activity
 1. [PHP Track](https://www.codeschool.com/learn/php)
