@@ -9,8 +9,8 @@ It will also help me get in the habit of saving my code and using Git more frequ
 
 #### Actions:
 - [ ] Clean up my version of the file from the first PHP Workshop.
-- [ ] Create the GitHub Repo for the PHP Track.
-- [ ] Test README.md appearance on GitHub (actions and relative links).
+- [x] Create the GitHub Repo for the PHP Track.
+- [x] Test README.md appearance on GitHub (actions and relative links).
 
 #### CodeSchool Activity
 1. [PHP Track](https://www.codeschool.com/learn/php)
