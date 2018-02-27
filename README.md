@@ -10,7 +10,7 @@ It will also help me get in the habit of saving my code and using Git more frequ
 #### Actions:
 - [ ] Clean up my version of the file from the first PHP Workshop.
 - [ ] Create the GitHub Repo for the PHP Track.
-- [ ] Test README.md appearance on GitHub.
+- [ ] Test README.md appearance on GitHub (actions and relative links).
 
 #### CodeSchool Activity
 1. [PHP Track](https://www.codeschool.com/learn/php)
@@ -18,6 +18,7 @@ It will also help me get in the habit of saving my code and using Git more frequ
     2. [Close Encounters with PHP](https://www.codeschool.com/courses/close-encounters-with-php)
     3. [Try Laravel](https://www.codeschool.com/courses/try-laravel)
     4. [From Form to Table with Laravel](https://www.codeschool.com/courses/try-laravel)
+        * The From Form to Table App is replicated in the [market](market/) folder in this repo. It is not styled and had progress only through the end of the From Form to Table course on CodeSchool.
 2. [Database Track](https://www.codeschool.com/learn/database)
     1. [Try SQL](https://www.codeschool.com/courses/try-sql)
     2. [The Sequel to SQL](https://www.codeschool.com/courses/the-sequel-to-sql)
