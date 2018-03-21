@@ -3,7 +3,6 @@
 
 -----
 # Bits and Pieces
-
 Installing Composer:
 * Requires PHP first.
 * Install script from [composer website](https://getcomposer.org/download/):
@@ -13,9 +12,24 @@ Installing Composer:
     php composer-setup.php
     php -r "unlink('composer-setup.php');"  
     ```
-* Make the install global (mirrors the CodeSchool usage):
+* Make the install global (mirrors the CodeSchool usage): 
     ```
     sudo mv composer.phar /usr/local/bin/composer
     ```
 
-- [ ] TODO: Explain the scripts line by line?
+Installing Laravel:
+* Requires composer first.
+* Use composer to install Laravel: 
+    ```
+    composer global require laravel/installer
+    ```
+* Add Laravel install location to PATH for ease of use:
+    ```
+    sed -i -e '$a\' ~/.bashrc
+    echo "" >> ~/.bashrc
+    echo '# Add composer packages to global PATH (mainly for Laravel)' >> ~/.bashrc
+    echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+    ```
+
+# TODO list
+- [ ] Explain the scripts line by line?
