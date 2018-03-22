@@ -29,6 +29,7 @@ Installing Laravel:
     echo "" >> ~/.bashrc
     echo '# Add composer packages to global PATH (mainly for Laravel)' >> ~/.bashrc
     echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+    source ~/.bashrc
     ```
 
 # TODO list
