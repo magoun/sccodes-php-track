@@ -80,7 +80,7 @@ foreach ($people as $key => $person) {
                     <th><?= $key; ?></th>
                     <th><?= $person['first_name'];?></th>
                     <th><?= $person['last_name']; ?></th>
-                    <th><a class="btn btn-info btn-xs" href="" role="button">Edit</a></th>
+                    <th><a class="btn btn-info btn-xs" href="<?= $_SERVER['PHP_SELF']; ?>?action=edit&id=<?= $key;?>" role="button">Edit</a></th>
                     <th><a class="btn btn-danger btn-xs" href="<?= $_SERVER['PHP_SELF']; ?>?action=delete&id=<?= $key;?>" role="button">Delete</a></th>
                 </tr>
 <?php
