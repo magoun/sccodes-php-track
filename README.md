@@ -8,11 +8,15 @@ It will also help me get in the habit of saving my code and using Git more frequ
 [//]: # (Add Table of Contents if this page gets too long.)
 
 #### Actions:
-- [ ] Clean up my version of the file from the first PHP Workshop.
+- [x] Clean up my version of the file from the first PHP Workshop.
 - [x] Create the GitHub Repo for the PHP Track.
 - [x] Test README.md appearance on GitHub (actions and relative links).
 - [ ] Create instructions for getting PHP 7.2 and Laravel set up on c9.io.
+    * Laravel section complete!
     * Gabriel has a good chunk of this available on slack already.
+- [ ] Learn what the submit button does for PHP
+    * Is there a post request? It doesn't change the html handle...
+    * Can you set a custom href on submit?
 
 #### CodeSchool Activity
 1. [PHP Track](https://www.codeschool.com/learn/php)
