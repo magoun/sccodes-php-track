@@ -6,19 +6,27 @@
     ini_set('display_errors', 1);
     
     // Read data file.
-    $data = file_get_contents('data.json');
+    $file = 'data.json';
+    $data = file_get_contents($file);
     
     // Convert the string into a JSON object, then transform it to an array.
     $people = json_decode($data, true);
     
+    $test = $_GET;
+    
     // Deal with actions
-    switch ($_GET) {
-        case 'delete':
-            $people = slice($people, $_GET['id'], 1);
-            break;
-        case 'edit':
-            echo 'edit';
-            break;
+    if (isset($_GET['action'])) {
+        switch ($_GET['action']) {
+            case 'delete':
+                // Remove the id from the array in place.
+                array_splice($people, $_GET['id'], 1);
+                // Write the new array back to the data file.
+                file_put_contents($file, json_encode($people));
+                break;
+            case 'edit':
+                $person = array_slice($people, $_GET['id'], 1);
+                break;
+        }
     }
 ?>
 
@@ -78,21 +86,18 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                    foreach ($people as $id => $person) {
-                        echo
-                        '<tr>
-                            <th>' . ($id + 1) . '</th>
-                            <th>' . $person['first_name'] . '</th>
-                            <th>' . $person['last_name'] . '</th>
-                            <th><a href="#"><button class="btn btn-info">Edit</button></a></th>
-                            <th><a href="?action=delete&id=' . $id . '"><button class="btn btn-danger">Delete</button></a></th>
-                        </tr>';
-                    }
-                ?>
+                <?php foreach ($people as $key => $person) { ?>
+                    <tr>
+                        <th><?= $key; ?></th>
+                        <th><?= $person['first_name'];?></th>
+                        <th><?= $person['last_name']; ?></th>
+                        <th><a class="btn btn-info btn-xs" href="<?= $_SERVER['PHP_SELF']; ?>?action=edit&id=<?= $key;?>" role="button">Edit</a></th>
+                        <th><a class="btn btn-danger btn-xs" href="<?= $_SERVER['PHP_SELF']; ?>?action=delete&id=<?= $key;?>" role="button">Delete</a></th>
+                    </tr>
+                <?php } // Must close the foreach loop?>
             </tbody>
         </table>
-        <?= var_dump($people) ?>
+        <?= var_dump($test); ?>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
