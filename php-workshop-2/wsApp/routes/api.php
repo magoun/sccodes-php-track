@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use League\Csv\Reader;
+use League\Csv\Statement;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,37 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('api')->get('/teams', function (Request $request) {
+    $csv = Reader::createFromPath(base_path('/docs/teams.csv'), 'r');
+    $csv->setHeaderOffset(0); //set the CSV header offset
+    
+    //get 25 records starting from the 11th row
+    $stmt = (new Statement())
+        ->offset(0)
+        ->limit(5)
+    ;
+    
+    $records = $stmt->process($csv);
+    
+    foreach ($records as $record) {
+        //do something here
+    }
+    
+    return $records;
 });
+
+Route::middleware('api')->get('/awesome', function (Request $request) {
+    $people = [
+        'Ryan McAwesome',
+        'Gabriel Aragon',
+        'James jameslastname',
+        'Kraken Magoun',
+        ];
+    
+    return $people;
+});
+
+// Original authentication scaffolding.
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });

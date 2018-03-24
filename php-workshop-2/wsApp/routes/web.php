@@ -1,6 +1,4 @@
 <?php
-use League\Csv\Reader;
-use League\Csv\Statement;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +12,11 @@ use League\Csv\Statement;
 */
 
 Route::get('/', function () {
-    $csv = Reader::createFromPath(base_path('/docs/teams.csv'), 'r');
-    $csv->setHeaderOffset(0); //set the CSV header offset
-    
-    //get 25 records starting from the 11th row
-    $stmt = (new Statement())
-        ->offset(0)
-        ->limit(5)
-    ;
-    
-    $records = $stmt->process($csv);
-    foreach ($records as $record) {
-        //do something here
-    }
-    
-    return $records;
-    // return view('welcome');
-    
+    $url = 'https://www.greenvillesc.gov/RSSFeed.aspx?ModID=1&CID=City-Greenville-Latest-News-15';
+    $rss = Feed::loadRss($url);
+    return view('greenville', ['items' => $rss->item]);
+});
+
+Route::get('/teams', function() {
+   return \App\Team::all(); 
 });
