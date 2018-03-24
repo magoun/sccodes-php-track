@@ -34,3 +34,10 @@ Installing Laravel:
 
 # TODO list
 - [ ] Explain the scripts line by line?
+- [ ] Write explanation for cloning this workspace
+- [ ] Create 'stock' workspace for future students to clone and start with?
+- [ ] Update description for workspace:
+        This is my main workspace for the SC Codes Advanced Track for PHP. 
+        PHP is updated to version 7.2, with Composer and Laravel installed globally for ease of use. 
+        More details can be found in README.md.
+- [ ] Add info on using the standard php -S server and php artisan serve on C9 (0.0.0.0:8080)
