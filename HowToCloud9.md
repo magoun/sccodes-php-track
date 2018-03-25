@@ -1,6 +1,10 @@
 # Getting Started
 ## Configuring Cloud 9 for the SC Codes PHP Track
 
+IDEA: Create a standard C9 workspace that can be cloned at the start of the advanced track. ReadMe.md can explain all of the features that are in placed currently (software versions, global installs, etc.) and HowToCloud9.md can explain the steps to get create the stock C9 workspace from scratch.
+
+The HowTo may also be useful in setting up a VM profile (Docker / Homestead) image for later on.
+
 -----
 # Bits and Pieces
 Installing Composer:
