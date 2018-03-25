@@ -18,11 +18,7 @@ class TeamsTableSeeder extends Seeder
         $csv = Reader::createFromPath(base_path('/docs/teams.csv'), 'r');
         $csv->setHeaderOffset(0); //set the CSV header offset
         
-        //get 25 records starting from the 11th row
-        $stmt = (new Statement())
-            ->offset(0)
-        ;
-        
+        $stmt = new Statement();
         $records = $stmt->process($csv);
         
         foreach ($records as $record) {
@@ -34,7 +30,6 @@ class TeamsTableSeeder extends Seeder
                 'league' => $record['League'],
             ]);
         }
-        
-        return $records;
+        // return $records;
     }
 }
