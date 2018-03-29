@@ -19,6 +19,7 @@ It will also help me get in the habit of saving my code and using Git more frequ
     * Can you set a custom href on submit?
 - [ ] Add recap of Workshop #2
 - [ ] Add details for the PHP Track project
+- [ ] List user stories as actions under project header below
 
 #### CodeSchool Activity
 1. [PHP Track](https://www.codeschool.com/learn/php)
