@@ -17,6 +17,8 @@ It will also help me get in the habit of saving my code and using Git more frequ
 - [ ] Learn what the submit button does for PHP
     * Is there a post request? It doesn't change the html handle...
     * Can you set a custom href on submit?
+- [ ] Add recap of Workshop #2
+- [ ] Add details for the PHP Track project
 
 #### CodeSchool Activity
 1. [PHP Track](https://www.codeschool.com/learn/php)
@@ -39,4 +41,4 @@ It will also help me get in the habit of saving my code and using Git more frequ
         * [Loop Example](php-workshop-1/loopingexample.php)
 
 #### Projects
-* Haven't begun a project yet, but we have a few ideas for the cohort. I'll update when we decide on something.
+[Link to project description](https://docs.google.com/document/d/1MNkXgf0rjRus8LRWmm6qjV4nNA-4p6vWrse0OOnFGsg/edit)
