@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Organizations</title>
+        <title>{{ $title }}</title>
 
         <!-- Styles -->
         <style>
@@ -19,6 +19,9 @@
     </head>
     <body>
         <div>
+            <!--<h1>{{ $title }}</h1>-->
+            <!--<br />-->
+            
             @foreach ($orgs as $org)
                 <li>{{ $org->title }}</li>
             @endforeach
