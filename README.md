@@ -43,3 +43,10 @@ It will also help me get in the habit of saving my code and using Git more frequ
 
 #### Projects
 [Link to project description](https://docs.google.com/document/d/1MNkXgf0rjRus8LRWmm6qjV4nNA-4p6vWrse0OOnFGsg/edit)
+[Link to Greenville Open Data Website](https://data.openupstate.org/)
+
+Fulfill the user stories below using the Greenville Open Data API.
+- [ ] User Story: I can view events by month.
+- [ ] User Story: I can sort events by event type.
+- [ ] User Story: I want to see a list of events and be able to click a Google Calendar link and add events to my calendar easily. 
+- [ ] User Story: I can view a list of organizations.
