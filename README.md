@@ -50,3 +50,10 @@ Fulfill the user stories below using the Greenville Open Data API.
 - [ ] User Story: I can sort events by event type.
 - [ ] User Story: I want to see a list of events and be able to click a Google Calendar link and add events to my calendar easily. 
 - [ ] User Story: I can view a list of organizations.
+
+##### Project next steps
+- [ ] Figure out how to parse timestamps from events
+- [ ] Add links to organizations in the orgs view
+- [ ] Abstract orgs display out of template
+    * @yield and @section tags
+- [ ] Create general template with header / footer
