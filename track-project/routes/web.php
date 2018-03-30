@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'apiController@debugOrgs');
+Route::get('/orgs', 'apiController@showOrgs');
+Route::get('/events', 'apiController@showEvents');
