@@ -35,10 +35,7 @@ class apiController extends Controller
         
         // dd($json);
         
-        return view('orgs', [
-                            'orgs' => $json, 
-                            'title' => 'Organizations',
-                            ]);
+        return view('orgs', ['orgs' => $json]);
     }
     
     /**
