@@ -12,11 +12,19 @@ class apiController extends Controller
     public function showEvents()
     {
         $url = 'https://nunes.online/api/gtc';
-        $data = file_get_contents($url);
+        $data = file_get_contents( $url );
         
-        // Put the JSON into a nested array format.
-        $json = json_decode($data, true);
-        dd($json);
+        // Put the data into JSON format.
+        $json = json_decode( $data );
+        
+        // Put the data into a nested array format.
+        // $array = json_decode( $data , true );
+        
+        // Sort the events by date.
+        // I have very little clue why this works...
+        usort( $json , [$this, 'compare'] );
+
+        return view( 'events' , [ 'events' => $json ]);
     }
     
     /**
@@ -25,34 +33,30 @@ class apiController extends Controller
     public function showOrgs()
     {
         $url = 'https://data.openupstate.org/rest/organizations';
-        $data = file_get_contents($url);
+        $data = file_get_contents( $url );
         
         // Put the data into JSON format.
-        $json = json_decode($data);
+        $json = json_decode( $data );
         
         // Put the data into a nested array format.
-        // $array = json_decode($data, true);
+        // $array = json_decode( $data , true );
         
         // dd($json);
         
-        return view('orgs', ['orgs' => $json]);
+        return view( 'orgs' , [ 'orgs' => $json ]);
     }
     
     /**
      * Debug orgs - delete in production.
      */
-    public function debugOrgs()
+    public function debugEvents()
     {
-        $url = 'https://data.openupstate.org/rest/organizations';
-        $data = file_get_contents($url);
+        $url = 'https://nunes.online/api/gtc';
+        $data = file_get_contents( $url );
         
-        // Put the data into JSON format.
-        $json = json_decode($data);
-        
-        // Put the data into a nested array format.
-        // $array = json_decode($data, true);
-        
-        dd($json);
+        // Put the JSON into a nested array format.
+        $json = json_decode( $data , true );
+        dd( $json );
     }
     
     /**
@@ -119,5 +123,18 @@ class apiController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    /**
+     * Sort events by date.
+     */
+    private static function compare( $a , $b ) 
+    {
+        if ( $a->time == $b->time ) 
+        { 
+            return 0;
+        }
+        
+        return ( $a->time < $b->time ) ? -1 : 1;
     }
 }
