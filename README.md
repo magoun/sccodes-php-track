@@ -18,8 +18,8 @@ It will also help me get in the habit of saving my code and using Git more frequ
     * Is there a post request? It doesn't change the html handle...
     * Can you set a custom href on submit?
 - [ ] Add recap of Workshop #2
-- [ ] Add details for the PHP Track project
-- [ ] List user stories as actions under project header below
+- [x] Add details for the PHP Track project
+- [x] List user stories as actions under project header below
 
 #### CodeSchool Activity
 1. [PHP Track](https://www.codeschool.com/learn/php)
@@ -49,11 +49,14 @@ Fulfill the user stories below using the Greenville Open Data API.
 - [ ] User Story: I can view events by month.
 - [ ] User Story: I can sort events by event type.
 - [ ] User Story: I want to see a list of events and be able to click a Google Calendar link and add events to my calendar easily. 
-- [ ] User Story: I can view a list of organizations.
+- [x] User Story: I can view a list of organizations.
+    * This is satisfied by the /orgs route
 
 ##### Project next steps
-- [ ] Figure out how to parse timestamps from events
+- [x] Figure out how to parse timestamps from events
 - [ ] Add links to organizations in the orgs view
-- [ ] Abstract orgs display out of template
+- [x] Abstract orgs display out of template
     * @yield and @section tags
-- [ ] Create general template with header / footer
+- [x] Create general template ~~with header / footer~~
+- [ ] Beautify layout.page
+- [x] Figure out how to sort events by date
