@@ -41,7 +41,17 @@ class apiController extends Controller
         // Put the data into a nested array format.
         // $array = json_decode( $data , true );
         
-        // dd($json);
+        $types = array();
+        
+        foreach ( $json as $org ) 
+        {
+            if ( !in_array( $org->field_organization_type , $types ))
+            {
+                $types[] = $org->field_organization_type;
+            }
+        }
+        
+        dd( $types );
         
         return view( 'orgs' , [ 'orgs' => $json ]);
     }
