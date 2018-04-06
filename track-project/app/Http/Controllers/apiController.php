@@ -61,11 +61,27 @@ class apiController extends Controller
 		dd( $json );
 	}
 	
-	private function getOrgTypes( $json )
+	private function getEventMonths( $events )
 	{
 	  $result = array();
 	  
-	  foreach ( $json as $org ) 
+	  foreach ( $events as $event )
+	  {
+	    $event_date = DateTime::createFromFormat('Y-m-d\TH:i:s\Z', 
+				              $event->time)->format();
+								
+	 //   if ( !in_array(  , $result ))
+		// 	{
+		// 		$result[] = $org->field_organization_type;
+		// 	}
+	  }
+	}
+	
+	private function getOrgTypes( $orgs )
+	{
+	  $result = array();
+	  
+	  foreach ( $orgs as $org ) 
 		{
 			if ( !in_array( $org->field_organization_type , $result ))
 			{
