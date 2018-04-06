@@ -22,7 +22,7 @@ class apiController extends Controller
 		
 		// Sort the events by date.
 		// I have very little clue why this works...
-		usort( $json , [$this, 'compare'] );
+		usort( $json , [$this, 'compare']);
 
 		return view( 'events' , [ 'events' => $json ]);
 	}
@@ -41,15 +41,7 @@ class apiController extends Controller
 		// Put the data into a nested array format.
 		// $array = json_decode( $data , true );
 		
-		$types = array();
-		
-		foreach ( $json as $org ) 
-		{
-			if ( !in_array( $org->field_organization_type , $types ))
-			{
-				$types[] = $org->field_organization_type;
-			}
-		}
+		$types = $this->getOrgTypes( $json );
 		
 		dd( $types );
 		
@@ -67,6 +59,21 @@ class apiController extends Controller
 		// Put the JSON into a nested array format.
 		$json = json_decode( $data , true );
 		dd( $json );
+	}
+	
+	private function getOrgTypes( $json )
+	{
+	  $result = array();
+	  
+	  foreach ( $json as $org ) 
+		{
+			if ( !in_array( $org->field_organization_type , $result ))
+			{
+				$result[] = $org->field_organization_type;
+			}
+		}
+		
+		return $result;
 	}
 	
 	private static function compare( $a , $b ) 
