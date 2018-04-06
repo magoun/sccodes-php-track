@@ -11,9 +11,10 @@ It will also help me get in the habit of saving my code and using Git more frequ
 - [x] Clean up my version of the file from the first PHP Workshop.
 - [x] Create the GitHub Repo for the PHP Track.
 - [x] Test README.md appearance on GitHub (actions and relative links).
-- [ ] Create instructions for getting PHP 7.2 and Laravel set up on c9.io.
+- [x] Create instructions for getting PHP 7.2 and Laravel set up on c9.io.
     * Laravel section complete!
     * Gabriel has a good chunk of this available on slack already.
+    * PHP7.2 section complete
 - [ ] Learn what the submit button does for PHP
     * Is there a post request? It doesn't change the html handle...
     * Can you set a custom href on submit?
@@ -59,4 +60,6 @@ Fulfill the user stories below using the Greenville Open Data API.
     * @yield and @section tags
 - [x] Create general template ~~with header / footer~~
 - [ ] Beautify layout.page
+- [ ] How do parameters work for PHP?
+    * Can use this to select month for event filtering?
 - [x] Figure out how to sort events by date
