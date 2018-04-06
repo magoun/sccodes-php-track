@@ -43,7 +43,7 @@ It will also help me get in the habit of saving my code and using Git more frequ
         * [Loop Example](php-workshop-1/loopingexample.php)
 
 #### Projects
-[Link to project description](https://docs.google.com/document/d/1MNkXgf0rjRus8LRWmm6qjV4nNA-4p6vWrse0OOnFGsg/edit)
+[Link to project description](https://docs.google.com/document/d/1MNkXgf0rjRus8LRWmm6qjV4nNA-4p6vWrse0OOnFGsg/edit)  
 [Link to Greenville Open Data Website](https://data.openupstate.org/)
 
 Fulfill the user stories below using the Greenville Open Data API.
