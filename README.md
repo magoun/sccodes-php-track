@@ -47,7 +47,7 @@ It will also help me get in the habit of saving my code and using Git more frequ
 [Link to Greenville Open Data Website](https://data.openupstate.org/)
 
 Fulfill the user stories below using the Greenville Open Data API.
-- [ ] User Story: I can view events by month.
+- [x] User Story: I can view events by month.
 - [ ] User Story: I can sort events by event type.
 - [ ] User Story: I want to see a list of events and be able to click a Google Calendar link and add events to my calendar easily. 
 - [x] User Story: I can view a list of organizations.
@@ -60,6 +60,9 @@ Fulfill the user stories below using the Greenville Open Data API.
     * @yield and @section tags
 - [x] Create general template ~~with header / footer~~
 - [ ] Beautify layout.page
-- [ ] How do parameters work for PHP?
+- [x] How do parameters work for PHP?
     * Can use this to select month for event filtering?
 - [x] Figure out how to sort events by date
+- [ ] Finish url generator for google calendar in events view.
+- [ ] Refactor helper functions into standalone file for simpler codebase.
+    * [Reference](https://stackoverflow.com/questions/35332784/how-to-call-a-controller-function-inside-a-view-in-laravel-5)
