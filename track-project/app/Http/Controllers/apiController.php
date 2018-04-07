@@ -7,24 +7,11 @@ use Illuminate\Http\Request;
 class apiController extends Controller
 {
 	/**
-	 * Display a list of events.
+	 * Debug route - delete in production.
 	 */
-	public function showEvents()
+	public function debug()
 	{
-		$url = 'https://nunes.online/api/gtc';
-		$data = file_get_contents( $url );
-		
-		// Put the data into JSON format.
-		$json = json_decode( $data );
-		
-		// Put the data into a nested array format.
-		// $array = json_decode( $data , true );
-		
-		// Sort the events by date.
-		// I have very little clue why this works...
-		usort( $json , [$this, 'compare']);
-
-		return view( 'events' , [ 'events' => $json ]);
+    return 'Next user story testing...';
 	}
 	
 	/**
@@ -49,16 +36,44 @@ class apiController extends Controller
 	}
 	
 	/**
-	 * Debug orgs - delete in production.
+	 * Display a list of events.
 	 */
-	public function debugEvents()
+	public function showEvents()
 	{
 		$url = 'https://nunes.online/api/gtc';
 		$data = file_get_contents( $url );
 		
-		// Put the JSON into a nested array format.
-		$json = json_decode( $data , true );
-		dd( $json );
+		// Put the data into JSON format.
+		$json = json_decode( $data );
+		
+		// Sort the events by date.
+		// I have very little clue why this works...
+		usort( $json , [$this, 'compare']);
+		
+		$months = $this->getEventMonths( $json );
+		
+		if (isset($_GET['month'])) {
+      $json = $this->filterOnMonth( $json , $_GET['month']);
+    }
+		
+		return view( 'events' , [ 'events' => $json,
+		                          'months' => $months]);
+	}
+	
+	private function filterOnMonth ( $events , $month ) {
+	  $result = array();
+	  
+	  foreach ( $events as $event ) {
+	    $event_month = \DateTime::createFromFormat('Y-m-d\TH:i:s\Z', 
+				              $event->time)->format('F Y');
+								
+	    if ( $event_month == $month )
+			{
+				$result[] = $event;
+			}
+	  }
+	  
+	  return $result;
 	}
 	
 	private function getEventMonths( $events )
@@ -67,14 +82,16 @@ class apiController extends Controller
 	  
 	  foreach ( $events as $event )
 	  {
-	    $event_date = DateTime::createFromFormat('Y-m-d\TH:i:s\Z', 
-				              $event->time)->format();
+	    $event_month = \DateTime::createFromFormat('Y-m-d\TH:i:s\Z', 
+				              $event->time)->format('F Y');
 								
-	 //   if ( !in_array(  , $result ))
-		// 	{
-		// 		$result[] = $org->field_organization_type;
-		// 	}
+	    if ( !in_array( $event_month , $result ))
+			{
+				$result[] = $event_month;
+			}
 	  }
+	  
+	  return $result;
 	}
 	
 	private function getOrgTypes( $orgs )
