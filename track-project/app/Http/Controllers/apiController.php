@@ -11,7 +11,15 @@ class apiController extends Controller
 	 */
 	public function debug()
 	{
-    return 'Next user story testing...';
+	  $url = 'https://nunes.online/api/gtc';
+		$data = file_get_contents( $url );
+		
+		// Put the data into JSON format.
+		$json = json_decode( $data );
+		
+    dd( $json );
+		
+    // return 'Next user story testing...';
 	}
 	
 	/**
