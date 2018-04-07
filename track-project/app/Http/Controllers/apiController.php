@@ -17,7 +17,14 @@ class apiController extends Controller
 		// Put the data into JSON format.
 		$json = json_decode( $data );
 		
-    dd( $json );
+    // dd( $json );
+    echo '<ul>';
+    foreach ($json as $event):
+      echo '<li>';
+      var_dump($event->venue);
+      echo '</li>';
+    endforeach;
+    echo '</ul>';
 		
     // return 'Next user story testing...';
 	}
