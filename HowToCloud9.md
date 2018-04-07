@@ -7,6 +7,17 @@ The HowTo may also be useful in setting up a VM profile (Docker / Homestead) ima
 
 -----
 # Bits and Pieces
+Git Aliases:
+* Easy access with `c9 open ~/.gitconfig`
+* Recommend adding the following:
+```
+[alias]
+    ls = log -7 --date=local --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad%Cred%d\\ %Creset%s%Cblue"
+    s = status
+    a = add
+    c = commit -m
+```
+
 Installing PHP7.2:
 ```
 sudo add-apt-repository ppa:ondrej/php -y
