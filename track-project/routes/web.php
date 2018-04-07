@@ -15,6 +15,6 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'apiController@debugEvents');
+Route::get('/', 'apiController@debug');
 Route::get('/orgs', 'apiController@showOrgs');
 Route::get('/events', 'apiController@showEvents');
