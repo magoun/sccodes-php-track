@@ -11,20 +11,26 @@ class apiController extends Controller
 	 */
 	public function debug()
 	{
-	  $url = 'https://nunes.online/api/gtc';
-		$data = file_get_contents( $url );
+	  $event_url = 'https://nunes.online/api/gtc';
+	  $org_url = 'https://data.openupstate.org/rest/organizations';
+	  
+		$event_data = file_get_contents( $event_url );
+		$org_data = file_get_contents( $org_url );
 		
 		// Put the data into JSON format.
-		$json = json_decode( $data );
+		$orgs = json_decode( $org_data );
+		$events = json_decode( $event_data );
 		
-    // dd( $json );
-    echo '<ul>';
-    foreach ($json as $event):
-      echo '<li>';
-      var_dump($event->venue);
-      echo '</li>';
+		$event_organizers = array();
+		
+    foreach ($events as $event):
+      if ( !in_array( $event->group_name , $event_organizers )):
+				$event_organizers[] = $event->group_name;
+			endif;
     endforeach;
-    echo '</ul>';
+    
+    dd();
+    // dd($events);
 		
     // return 'Next user story testing...';
 	}
