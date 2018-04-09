@@ -29,8 +29,23 @@ class apiController extends Controller
 			endif;
     endforeach;
     
-    dd();
-    // dd($events);
+    $org_names = array();
+    
+    foreach ($orgs as $org):
+      $org_names[] = $org->title;
+    endforeach;
+    
+    $test = array();
+    
+    foreach ($event_organizers as $name):
+      if ( !in_array( $name , $org_names )):
+				$test[$name] = true;
+			else:
+			  $test[$name] = false;
+			endif;
+    endforeach;
+    
+    dd($org_names, array_filter($test, function ($value) {return !$value;}));
 		
     // return 'Next user story testing...';
 	}
