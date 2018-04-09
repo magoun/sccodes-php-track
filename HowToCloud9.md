@@ -12,11 +12,14 @@ Git Aliases:
 * Recommend adding the following:
 ```
 [alias]
-    ls = log -7 --date=local --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad%Cred%d\\ %Creset%s%Cblue"
+    ls = log --date=local --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad%Cred%d\\ %Creset%s%Cblue"
     s = status
     a = add
     c = commit -m
 ```
+Side note: `git ls` can take additional flags (like `git ls -5` to limit the list to 5 items).
+    * Also, running `export TZ=EST` will specify Eastern time in from `git ls`
+    * You can add this to your ~/.bashrc if you don't want to remember it later.
 
 Installing PHP7.2:
 ```
