@@ -18,8 +18,8 @@ Git Aliases:
     c = commit -m
 ```
 Side note: `git ls` can take additional flags (like `git ls -5` to limit the list to 5 items).
-    * Also, running `export TZ=EST` will specify Eastern time in from `git ls`
-    * You can add this to your ~/.bashrc if you don't want to remember it later.
+* Also, running `export TZ=EST` will specify Eastern time in from `git ls`
+* You can add this to your ~/.bashrc if you don't want to remember it later.g
 
 Installing PHP7.2:
 ```
@@ -72,3 +72,4 @@ Installing Laravel:
         PHP is updated to version 7.2, with Composer and Laravel installed globally for ease of use. 
         More details can be found in README.md.
 - [ ] Add info on using the standard php -S server and php artisan serve on C9 (0.0.0.0:8080)
+- [ ] Explain how to use Run Project instead of `php -S` or `php artisan serve`
