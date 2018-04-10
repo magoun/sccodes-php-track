@@ -60,6 +60,9 @@ Fulfill the user stories below using the Greenville Open Data API.
 
 ##### Project next steps
 - [x] Figure out how to parse timestamps from events
+- [ ] Use Guzzle and PATCH to update org titles to match event org names
+-   * Guzzle starter is in helpers.php
+-   * [Guzzle Docs](http://docs.guzzlephp.org/en/stable/quickstart.html)
 - [ ] Add links to organizations in the orgs view
 - [x] Abstract orgs display out of template
     * @yield and @section tags
@@ -69,7 +72,7 @@ Fulfill the user stories below using the Greenville Open Data API.
     * Can use this to select month for event filtering?
 - [x] Figure out how to sort events by date
 - [x] Finish url generator for google calendar in events view.
-- [ ] Refactor helper functions into standalone file for simpler codebase.
-    * [Reference](https://stackoverflow.com/questions/35332784/how-to-call-a-controller-function-inside-a-view-in-laravel-5)
+- [x] Refactor helper functions into standalone file for simpler codebase.
+    * [How to Use 'helpers.php' reference](https://stackoverflow.com/questions/35332784/how-to-call-a-controller-function-inside-a-view-in-laravel-5)
     * From apiController: filterOnMonth, getEventMonths, getOrgTypes, compare
     * From events view: logic for building google calendar string
