@@ -61,8 +61,10 @@ Fulfill the user stories below using the Greenville Open Data API.
 ##### Project next steps
 - [x] Figure out how to parse timestamps from events
 - [ ] Use Guzzle and PATCH to update org titles to match event org names
--   * Guzzle starter is in helpers.php
--   * [Guzzle Docs](http://docs.guzzlephp.org/en/stable/quickstart.html)
+    * Guzzle starter is in helpers.php
+    * [Guzzle Docs](http://docs.guzzlephp.org/en/stable/quickstart.html)
+- [ ] Verify that Org names have been updated in the API
+- [ ] Create logic that filters events by organizaion type
 - [ ] Add links to organizations in the orgs view
 - [x] Abstract orgs display out of template
     * @yield and @section tags
