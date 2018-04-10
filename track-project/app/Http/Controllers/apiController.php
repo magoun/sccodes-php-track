@@ -35,16 +35,23 @@ class apiController extends Controller
       $org_names[] = $org->title;
     endforeach;
     
+    // dd( $event_organizers, $org_names);
+    // $event_organizers holds an array of unique groups hosting events
+    // $org_names holds an array of known groups
+    
     $test = array();
+    $false_names = array();
     
     foreach ($event_organizers as $name):
-      if ( !in_array( $name , $org_names )):
+      if ( in_array( $name , $org_names )):
 				$test[$name] = true;
 			else:
-			  $test[$name] = false;
+        $test[$name] = false;
 			endif;
     endforeach;
     
+    
+    // dd( $test, $false_names, $org_names);
     dd($org_names, array_filter($test, function ($value) {return !$value;}));
 		
     // return 'Next user story testing...';
@@ -61,12 +68,9 @@ class apiController extends Controller
 		// Put the data into JSON format.
 		$json = json_decode( $data );
 		
-		// Put the data into a nested array format.
-		// $array = json_decode( $data , true );
+		$types = getOrgTypes( $json );
 		
-		$types = $this->getOrgTypes( $json );
-		
-		dd( $types );
+		// dd( $types );
 		
 		return view( 'orgs' , [ 'orgs' => $json ]);
 	}
@@ -84,74 +88,15 @@ class apiController extends Controller
 		
 		// Sort the events by date.
 		// I have very little clue why this works...
-		usort( $json , [$this, 'compare']);
+		usort( $json , 'compare');
 		
-		$months = $this->getEventMonths( $json );
+		$months = getEventMonths( $json );
 		
 		if (isset($_GET['month'])) {
-      $json = $this->filterOnMonth( $json , $_GET['month']);
+      $json = filterOnMonth( $json , $_GET['month']);
     }
 		
 		return view( 'events' , [ 'events' => $json,
 		                          'months' => $months]);
-	}
-	
-	private function filterOnMonth ( $events , $month ) {
-	  $result = array();
-	  
-	  foreach ( $events as $event ) {
-	    $event_month = \DateTime::createFromFormat('Y-m-d\TH:i:s\Z', 
-				              $event->time)->format('F Y');
-								
-	    if ( $event_month == $month )
-			{
-				$result[] = $event;
-			}
-	  }
-	  
-	  return $result;
-	}
-	
-	private function getEventMonths( $events )
-	{
-	  $result = array();
-	  
-	  foreach ( $events as $event )
-	  {
-	    $event_month = \DateTime::createFromFormat('Y-m-d\TH:i:s\Z', 
-				              $event->time)->format('F Y');
-								
-	    if ( !in_array( $event_month , $result ))
-			{
-				$result[] = $event_month;
-			}
-	  }
-	  
-	  return $result;
-	}
-	
-	private function getOrgTypes( $orgs )
-	{
-	  $result = array();
-	  
-	  foreach ( $orgs as $org ) 
-		{
-			if ( !in_array( $org->field_organization_type , $result ))
-			{
-				$result[] = $org->field_organization_type;
-			}
-		}
-		
-		return $result;
-	}
-	
-	private static function compare( $a , $b ) 
-	{
-		if ( $a->time == $b->time ) 
-		{ 
-			return 0;
-		}
-		
-		return ( $a->time < $b->time ) ? -1 : 1;
 	}
 }
