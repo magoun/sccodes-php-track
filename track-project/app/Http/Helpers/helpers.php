@@ -64,7 +64,7 @@ function getOrgTypes( $orgs )
 function compare( $a , $b ) 
 {
 	if ( $a->time == $b->time ) 
-	{ 
+	{
 		return 0;
 	}
 	
