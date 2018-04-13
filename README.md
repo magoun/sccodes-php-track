@@ -78,5 +78,7 @@ Fulfill the user stories below using the Greenville Open Data API.
     * From events view: logic for building google calendar string
 - [x] Refactor API calls to a function that auto cleans the data
     * Convert to JSON, apply appropriate helper functions, then return
-- [ ] Create logic that filters events by organization type
+- [x] Create logic that filters events by organization type
 - [ ] Add links to organizations in the orgs view
+- [ ] Figure out what the event type sorting user story is supposed to do...
+    * All of the events are hosted by "Meetup Groups" (go figure)
