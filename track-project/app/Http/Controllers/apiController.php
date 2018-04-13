@@ -28,7 +28,17 @@ class apiController extends Controller
       $org_names[] = $org->title;
     endforeach;
     
-    dd( $event_organizers, $org_names);
+    $test = getOrgTypeArray($orgs);
+    $newThing = array();
+    
+    foreach ( $event_organizers as $name ):
+      if (array_key_exists($name, $test)):
+        $newThing[$name] = $test[$name];
+      endif;
+    endforeach;
+    
+    dd($newThing);
+    // dd( $event_organizers, $org_names);
     // $event_organizers holds an array of unique groups hosting events
     // $org_names holds an array of known groups
     
@@ -57,10 +67,6 @@ class apiController extends Controller
 	{
     $orgs = getOrgs();
 		
-		$types = getOrgTypes( $orgs );
-		
-		// dd( $types );
-		
 		return view( 'orgs' , [ 'orgs' => $orgs ]);
 	}
 	
@@ -70,17 +76,27 @@ class apiController extends Controller
 	public function showEvents()
 	{
 		$events = getEvents();
+		$orgs = getOrgs();
 		
 		// Sort the events by date.
-		usort( $events , 'compare');
+		usort( $events , 'compareTime');
 		
 		$months = getEventMonths( $events );
+		$orgTypes = getOrgTypes( $orgs );
+		
+		// $test = filterOnType( $events , $orgs , $orgTypes[0] );
+		// dd($test);
 		
 		if (isset($_GET['month'])) {
       $events = filterOnMonth( $events , $_GET['month']);
     }
+    
+    if (isset($_GET['type'])):
+      $events = filterOnType( $events , $orgs , $_GET['type']);
+    endif;
 		
 		return view( 'events' , [ 'events' => $events,
-		                          'months' => $months]);
+		                          'months' => $months,
+		                          'orgTypes' => $orgTypes,]);
 	}
 }
