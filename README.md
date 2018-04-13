@@ -18,7 +18,7 @@ It will also help me get in the habit of saving my code and using Git more frequ
 - [ ] Learn what the submit button does for PHP
     * Is there a post request? It doesn't change the html handle...
     * Can you set a custom href on submit?
-- [ ] Add recap of Workshop #2
+- [x] Add recap of Workshop #2
 - [x] Add details for the PHP Track project
 - [x] List user stories as actions under project header below
 
@@ -60,11 +60,11 @@ Fulfill the user stories below using the Greenville Open Data API.
 
 ##### Project next steps
 - [x] Figure out how to parse timestamps from events
-- [ ] Use Guzzle and PATCH to update org titles to match event org names
-    * Guzzle starter is in helpers.php
-    * [Guzzle Docs](http://docs.guzzlephp.org/en/stable/quickstart.html)
-    * [ ] Verify that Org names have been updated in the API
-- [ ] Create logic that filters events by organizaion type
+- [ ] ~~Use Guzzle and PATCH to update org titles to match event org names~~
+    * ~~Guzzle starter is in helpers.php~~
+    * ~~[Guzzle Docs](http://docs.guzzlephp.org/en/stable/quickstart.html)~~
+    * ~~[ ] Verify that Org names have been updated in the API~~
+- [ ] Create logic that filters events by organization type
 - [ ] Add links to organizations in the orgs view
 - [x] Abstract orgs display out of template
     * @yield and @section tags
@@ -78,3 +78,5 @@ Fulfill the user stories below using the Greenville Open Data API.
     * [How to Use 'helpers.php' reference](https://stackoverflow.com/questions/35332784/how-to-call-a-controller-function-inside-a-view-in-laravel-5)
     * From apiController: filterOnMonth, getEventMonths, getOrgTypes, compare
     * From events view: logic for building google calendar string
+- [ ] Refactor API calls to a function that auto cleans the data
+    * Convert to JSON, apply appropriate helper functions, then return 
