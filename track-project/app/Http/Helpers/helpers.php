@@ -13,6 +13,54 @@
 // ]);
 
 /**
+ * Add general org info for Greenville SC Makers @ Synergy Mill 
+ */
+function addMissingOrgs ($orgs) {
+  $newOrg = object();
+  $newOrg->title = "Greenville SC Makers @ Synergy Mill";
+  $newOrg->field_organization_type = "Meetup Groups";
+  
+  // $orgs
+}
+
+/**
+ * Transform organization names to match event hosts.
+ */
+function convertOrgNames ($orgs) {
+  foreach ( $orgs as $org ):
+    $title = $org->title;
+
+    switch ($title) {
+      case "HackGreenville":
+        $title = "HackGreenville Community";
+        break;
+      case "GSP Developers Guild":
+        $title = "Greenville Spartanburg Developers' Guild";
+        break;
+      case "Code For Greenville":
+        $title = "Code for Greenville";
+        break;
+      case "Cocoaheads":
+        $title = "Greenville Cocoaheads";
+        break;
+      case "Upstate Elixir":
+        $title = "Upstate |> Elixir";
+        break;
+      case "Greenville SC WordPress Meetup Group":
+        $title = "Greenville South Carolina WordPress Group";
+        break;
+      case "ACM - Association for Computing Machinery":
+        $title = "ACM Greenville";
+        break;
+    }
+    
+    $org->title = $title;
+  endforeach;
+  
+  return $orgs;
+}
+
+/**
  * Build a Google calendar url from an event object.
  */
 function build_cal_url( $event )
