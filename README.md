@@ -76,7 +76,7 @@ Fulfill the user stories below using the Greenville Open Data API.
     * [How to Use 'helpers.php' reference](https://stackoverflow.com/questions/35332784/how-to-call-a-controller-function-inside-a-view-in-laravel-5)
     * From apiController: filterOnMonth, getEventMonths, getOrgTypes, compare
     * From events view: logic for building google calendar string
-- [ ] Refactor API calls to a function that auto cleans the data
+- [x] Refactor API calls to a function that auto cleans the data
     * Convert to JSON, apply appropriate helper functions, then return
 - [ ] Create logic that filters events by organization type
 - [ ] Add links to organizations in the orgs view
