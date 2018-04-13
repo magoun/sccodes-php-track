@@ -13,12 +13,41 @@
 // ]);
 
 /**
+ * Retrieve event information from API
+ */
+function getEvents () {
+  $event_url = 'https://nunes.online/api/gtc';
+  $event_data = file_get_contents( $event_url );
+  
+  // Put the data into JSON format.
+  $events = json_decode( $event_data );
+  
+  return $events;
+}
+
+/**
+ * Retrieve organization information from API
+ */
+function getOrgs () {
+  $org_url = 'https://data.openupstate.org/rest/organizations';
+  $org_data = file_get_contents( $org_url );
+  
+  // Put the data into JSON format.
+	$orgs = json_decode( $org_data );
+	
+	// Match event hosts with known orgs.
+	$orgs = convertOrgNames( $orgs );
+	
+	return $orgs;
+}
+
+/**
  * Add general org info for Greenville SC Makers @ Synergy Mill 
  */
 function addMissingOrgs ($orgs) {
   $newOrg = new StdClass();
-  $newOrg->title = "Greenville SC Makers @ Synergy Mill";
-  $newOrg->field_organization_type = "Meetup Groups";
+  $newOrg->title = "";
+  $newOrg->field_organization_type = "";
   
   $orgs[] = $newOrg;
   
@@ -53,6 +82,9 @@ function convertOrgNames ($orgs) {
         break;
       case "ACM - Association for Computing Machinery":
         $title = "ACM Greenville";
+        break;
+      case "Synergy Mill":
+        $title = "Greenville SC Makers @ Synergy Mill";
         break;
     }
     
