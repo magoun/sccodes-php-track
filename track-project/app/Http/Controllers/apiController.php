@@ -18,11 +18,12 @@ class apiController extends Controller
 		$org_data = file_get_contents( $org_url );
 		
 		// Put the data into JSON format.
-		$orgs = json_decode( $org_data );
-		$orgs = convertOrgNames( $orgs );
 		$events = json_decode( $event_data );
+		$orgs = json_decode( $org_data );
 		
-		// dd($orgs);
+		// Match event hosts with known orgs.
+		$orgs = convertOrgNames( $orgs );
+		$orgs = addMissingOrgs( $orgs );
 		
 		$event_organizers = array();
 		
@@ -55,7 +56,7 @@ class apiController extends Controller
     
     // dd($test, $org_names);
     // dd( $test, $false_names, $org_names);
-    dd(array_filter($test, function ($value) {return !$value;}), $org_names);
+    // dd(array_filter($test, function ($value) {return !$value;}), $org_names);
 		
     // return 'Next user story testing...';
 	}
