@@ -43,6 +43,7 @@ function getOrgs () {
 
 /**
  * Add general org info for Greenville SC Makers @ Synergy Mill 
+ * Currently unused.
  */
 function addMissingOrgs ($orgs) {
   $newOrg = new StdClass();
@@ -132,13 +133,11 @@ function getOrgTypes( $orgs )
 {
   $result = array();
   
-  foreach ( $orgs as $org ) 
-	{
-		if ( !in_array( $org->field_organization_type , $result ))
-		{
+  foreach ( $orgs as $org ) :
+		if ( !in_array( $org->field_organization_type , $result )):
 			$result[] = $org->field_organization_type;
-		}
-	}
+		endif;
+  endforeach;
 	
 	return $result;
 }
@@ -146,12 +145,11 @@ function getOrgTypes( $orgs )
 /**
  * Comparison function for sorting events by time.
  */
-function compare( $a , $b ) 
+function compareTime( $a , $b ) 
 {
-	if ( $a->time == $b->time ) 
-	{
+	if ( $a->time == $b->time ):
 		return 0;
-	}
+	endif;
 	
 	return ( $a->time < $b->time ) ? -1 : 1;
 }
@@ -180,18 +178,51 @@ function getEventMonths( $events )
 /**
  * Return only the events that occur in the given month.
  */
-function filterOnMonth ( $events , $month ) {
+function filterOnMonth ( $events , $month )
+{
   $result = array();
   
-  foreach ( $events as $event ) {
+  foreach ( $events as $event ):
     $event_month = \DateTime::createFromFormat('Y-m-d\TH:i:s\Z', 
 			              $event->time)->format('F Y');
 							
-    if ( $event_month == $month )
-		{
+    if ( $event_month == $month ):
 			$result[] = $event;
-		}
-  }
+		endif;
+  endforeach;
+  
+  return $result;
+}
+
+/**
+ * Return only the events hosted by an organization of the given type.
+ */
+function filterOnType ( $events , $orgs , $type ) {
+  $result = array();
+  $orgTypeArray = getOrgTypeArray( $orgs );
+  
+  foreach ( $events as $event ):
+    $event_host = $event->group_name;
+    $event_type = $orgTypeArray[$event_host];
+							
+    if ( $event_type == $type ):
+			$result[] = $event;
+		endif;
+  endforeach;
+  
+  return $result;
+}
+
+/**
+ * Return an associative array of org name => org type.
+ */
+function getOrgTypeArray ( $orgs )
+{
+  $result = array();
+  
+  foreach ( $orgs as $org ):
+    $result[$org->title] = $org->field_organization_type;
+  endforeach;
   
   return $result;
 }
