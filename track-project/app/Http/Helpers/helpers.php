@@ -16,11 +16,13 @@
  * Add general org info for Greenville SC Makers @ Synergy Mill 
  */
 function addMissingOrgs ($orgs) {
-  $newOrg = object();
+  $newOrg = new StdClass();
   $newOrg->title = "Greenville SC Makers @ Synergy Mill";
   $newOrg->field_organization_type = "Meetup Groups";
   
-  // $orgs
+  $orgs[] = $newOrg;
+  
+  return $orgs;
 }
 
 /**
