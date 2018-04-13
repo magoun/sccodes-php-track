@@ -64,8 +64,6 @@ Fulfill the user stories below using the Greenville Open Data API.
     * ~~Guzzle starter is in helpers.php~~
     * ~~[Guzzle Docs](http://docs.guzzlephp.org/en/stable/quickstart.html)~~
     * ~~[ ] Verify that Org names have been updated in the API~~
-- [ ] Create logic that filters events by organization type
-- [ ] Add links to organizations in the orgs view
 - [x] Abstract orgs display out of template
     * @yield and @section tags
 - [x] Create general template ~~with header / footer~~
@@ -79,4 +77,6 @@ Fulfill the user stories below using the Greenville Open Data API.
     * From apiController: filterOnMonth, getEventMonths, getOrgTypes, compare
     * From events view: logic for building google calendar string
 - [ ] Refactor API calls to a function that auto cleans the data
-    * Convert to JSON, apply appropriate helper functions, then return 
+    * Convert to JSON, apply appropriate helper functions, then return
+- [ ] Create logic that filters events by organization type
+- [ ] Add links to organizations in the orgs view
