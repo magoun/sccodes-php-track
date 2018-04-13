@@ -19,7 +19,10 @@ class apiController extends Controller
 		
 		// Put the data into JSON format.
 		$orgs = json_decode( $org_data );
+		$orgs = convertOrgNames( $orgs );
 		$events = json_decode( $event_data );
+		
+		// dd($orgs);
 		
 		$event_organizers = array();
 		
@@ -50,9 +53,9 @@ class apiController extends Controller
 			endif;
     endforeach;
     
-    
+    // dd($test, $org_names);
     // dd( $test, $false_names, $org_names);
-    dd($org_names, array_filter($test, function ($value) {return !$value;}));
+    dd(array_filter($test, function ($value) {return !$value;}), $org_names);
 		
     // return 'Next user story testing...';
 	}
