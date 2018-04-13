@@ -11,19 +11,8 @@ class apiController extends Controller
 	 */
 	public function debug()
 	{
-	  $event_url = 'https://nunes.online/api/gtc';
-	  $org_url = 'https://data.openupstate.org/rest/organizations';
-	  
-		$event_data = file_get_contents( $event_url );
-		$org_data = file_get_contents( $org_url );
-		
-		// Put the data into JSON format.
-		$events = json_decode( $event_data );
-		$orgs = json_decode( $org_data );
-		
-		// Match event hosts with known orgs.
-		$orgs = convertOrgNames( $orgs );
-		$orgs = addMissingOrgs( $orgs );
+		$events = getEvents();
+		$orgs = getOrgs();
 		
 		$event_organizers = array();
 		
@@ -39,7 +28,7 @@ class apiController extends Controller
       $org_names[] = $org->title;
     endforeach;
     
-    // dd( $event_organizers, $org_names);
+    dd( $event_organizers, $org_names);
     // $event_organizers holds an array of unique groups hosting events
     // $org_names holds an array of known groups
     
@@ -66,17 +55,13 @@ class apiController extends Controller
 	 */
 	public function showOrgs()
 	{
-		$url = 'https://data.openupstate.org/rest/organizations';
-		$data = file_get_contents( $url );
+    $orgs = getOrgs();
 		
-		// Put the data into JSON format.
-		$json = json_decode( $data );
-		
-		$types = getOrgTypes( $json );
+		$types = getOrgTypes( $orgs );
 		
 		// dd( $types );
 		
-		return view( 'orgs' , [ 'orgs' => $json ]);
+		return view( 'orgs' , [ 'orgs' => $orgs ]);
 	}
 	
 	/**
@@ -84,23 +69,18 @@ class apiController extends Controller
 	 */
 	public function showEvents()
 	{
-		$url = 'https://nunes.online/api/gtc';
-		$data = file_get_contents( $url );
-		
-		// Put the data into JSON format.
-		$json = json_decode( $data );
+		$events = getEvents();
 		
 		// Sort the events by date.
-		// I have very little clue why this works...
-		usort( $json , 'compare');
+		usort( $events , 'compare');
 		
-		$months = getEventMonths( $json );
+		$months = getEventMonths( $events );
 		
 		if (isset($_GET['month'])) {
-      $json = filterOnMonth( $json , $_GET['month']);
+      $events = filterOnMonth( $events , $_GET['month']);
     }
 		
-		return view( 'events' , [ 'events' => $json,
+		return view( 'events' , [ 'events' => $events,
 		                          'months' => $months]);
 	}
 }
