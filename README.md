@@ -79,6 +79,12 @@ Fulfill the user stories below using the Greenville Open Data API.
 - [x] Refactor API calls to a function that auto cleans the data
     * Convert to JSON, apply appropriate helper functions, then return
 - [x] Create logic that filters events by organization type
-- [ ] Add links to organizations in the orgs view
+- [x] Add links to organizations in the orgs view
 - [ ] Figure out what the event type sorting user story is supposed to do...
     * All of the events are hosted by "Meetup Groups" (go figure)
+- [ ] Make a model and try to port logic from the controller to the model
+    * FFTT has two models (farm and market) as example. They are called from the controller
+- [ ] Format Orgs view to look more like [this](https://data.openupstate.org/organizations)
+- [ ] Create header and footer sections and include in layouts.page
+- [ ] Learn how to incorporate multiple templates in a view (head/foot/nav)
+- [ ] Choose a CSS framework for prettification
