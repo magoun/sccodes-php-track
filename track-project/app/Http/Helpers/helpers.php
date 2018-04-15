@@ -226,3 +226,18 @@ function getOrgTypeArray ( $orgs )
   
   return $result;
 }
+
+/**
+ * Return a link to the org homepage.
+ * If no homepage, return a link to the org description at data.openupstate
+ */
+function getOrgWebsite ( $org )
+{
+  if ($org->field_homepage == ""):
+    $link = $org->path;
+  else:
+    $link = $org->field_homepage;
+  endif;
+  
+  return $link;
+}
